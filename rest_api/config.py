@@ -5,8 +5,8 @@ import os
 PROJECT_NAME = os.getenv("PROJECT_NAME", "FastAPI")
 
 # Resources / Computation
-USE_GPU = os.getenv("USE_GPU", "True").lower() == "true"
-GPU_NUMBER = int(os.getenv("GPU_NUMBER", 1))
+USE_GPU = os.getenv("USE_GPU", "False").lower() == "true"
+GPU_NUMBER = int(os.getenv("GPU_NUMBER", 0))
 MAX_PROCESSES = int(os.getenv("MAX_PROCESSES", 4))
 BATCHSIZE = int(os.getenv("BATCHSIZE", 50))
 CONCURRENT_REQUEST_PER_WORKER = int(os.getenv("CONCURRENT_REQUEST_PER_WORKER", 4))
@@ -16,7 +16,7 @@ DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = int(os.getenv("DB_PORT", 9200))
 DB_USER = os.getenv("DB_USER", "")
 DB_PW = os.getenv("DB_PW", "")
-DB_INDEX = os.getenv("DB_INDEX", "document")
+DB_INDEX = os.getenv("DB_INDEX", "drqa_wiki")
 DB_INDEX_FEEDBACK = os.getenv("DB_INDEX_FEEDBACK", "feedback")
 ES_CONN_SCHEME = os.getenv("ES_CONN_SCHEME", "http")
 TEXT_FIELD_NAME = os.getenv("TEXT_FIELD_NAME", "text")
@@ -26,7 +26,7 @@ EMBEDDING_FIELD_NAME = os.getenv("EMBEDDING_FIELD_NAME", None)
 EMBEDDING_DIM = os.getenv("EMBEDDING_DIM", None)
 
 # Reader
-READER_MODEL_PATH = os.getenv("READER_MODEL_PATH", None)
+READER_MODEL_PATH = os.getenv("READER_MODEL_PATH", "deepset/roberta-base-squad2")
 READER_USE_TRANSFORMERS = os.getenv("READER_USE_TRANSFORMERS", "False").lower() == "true"
 READER_TOKENIZER = os.getenv("READER_TOKENIZER", None)
 CONTEXT_WINDOW_SIZE = int(os.getenv("CONTEXT_WINDOW_SIZE", 500))
